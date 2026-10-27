@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PadelPro Arena | Hospedagem e Reserva de Quadras de Padel Premium</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- External Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="header" id="main-header">
+        <div class="container header-container">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">PADEL<span class="accent-text">PRO</span></span>
+                    <span class="logo-subtitle">ARENA CLUB</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="nav-links">
+                <a href="#home" class="nav-link active">Início</a>
+                <a href="#quadras" class="nav-link">Quadras</a>
+                <a href="#estrutura" class="nav-link">Estrutura</a>
+                <a href="#planos" class="nav-link">Mensalistas</a>
+                <a href="#avaliacoes" class="nav-link">Avaliações</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="header-actions">
+                <button onclick="openBookingModal()" class="btn btn-neon">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>Reservar Agora</span>
+                </button>
+                <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Abrir Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Drawer -->
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#home" class="mobile-link">Início</a>
+            <a href="#quadras" class="mobile-link">Quadras</a>
+            <a href="#estrutura" class="mobile-link">Estrutura</a>
+            <a href="#planos" class="mobile-link">Mensalistas</a>
+            <a href="#avaliacoes" class="mobile-link">Avaliações</a>
+            <a href="#contato" class="mobile-link">Contato</a>
+            <button onclick="openBookingModal()" class="btn btn-neon btn-full">
+                Reservar Quadra Agora
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=2000&auto=format&fit=crop" alt="Quadra de Padel PadelPro Arena">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="container hero-content">
+            <div class="badge-pill">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Complexo Esportivo Panorâmico de Alta Performance</span>
+            </div>
+
+            <h1 class="hero-title">
+                A MELHOR EXPERIÊNCIA DE <br>
+                <span class="gradient-text">PADEL NA CIDADE</span>
+            </h1>
+
+            <p class="hero-description">
+                Agende sua partida em quadras cobertas com piso panorâmico oficial de torneios internacionais, vidros temperados de 12mm e iluminação LED sem sombras.
+            </p>
+
+            <!-- Quick Simulator Bar -->
+            <div class="simulator-box glass-panel">
+                <form id="hero-search-form" onsubmit="handleHeroSearch(event)" class="simulator-grid">
+                    <div class="form-group">
+                        <label><i class="fa-regular fa-calendar"></i> Data</label>
+                        <input type="date" id="hero-date" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa-regular fa-clock"></i> Turno Preferido</label>
+                        <select id="hero-time" class="form-control">
+                            <option value="all">Qualquer Turno</option>
+                            <option value="morning">Manhã (06:00 - 12:00)</option>
+                            <option value="afternoon">Tarde (12:00 - 18:00)</option>
+                            <option value="night">Noite (18:00 - 23:30)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-layer-group"></i> Tipo de Quadra</label>
+                        <select id="hero-type" class="form-control">
+                            <option value="all">Todas as Quadras</option>
+                            <option value="coberta">Coberta Climatizada</option>
+                            <option value="descoberta">Descoberta Panorâmica</option>
+                            <option value="vip">Panorâmica VIP</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group flex-end">
+                        <button type="submit" class="btn btn-neon btn-full">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <span>Buscar Disponibilidade</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">6 Quadras</span>
+                    <span class="stat-label">Padrão Internacional</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number accent">100% LED</span>
+                    <span class="stat-label">Refletores Anti-Ofuscantes</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">+3.200</span>
+                    <span class="stat-label">Partidas no Ano</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number accent">4.9 ★</span>
+                    <span class="stat-label">Avaliação dos Atletas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUADRAS DISPONÍVEIS -->
+    <section id="quadras" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Nossas Quadras</span>
+                <h2 class="section-title">Escolha a sua Arena de Jogo</h2>
+                <p class="section-description">Quadras equipadas com tapete de absorção de impacto, drenagem de alta eficiência e isolamento térmico e acústico.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-bar">
+                <button onclick="filterCourts('all')" class="filter-btn active" data-filter="all">
+                    Todas
+                </button>
+                <button onclick="filterCourts('coberta')" class="filter-btn" data-filter="coberta">
+                    <i class="fa-solid fa-umbrella"></i> Cobertas
+                </button>
+                <button onclick="filterCourts('descoberta')" class="filter-btn" data-filter="descoberta">
+                    <i class="fa-solid fa-sun"></i> Descobertas
+                </button>
+                <button onclick="filterCourts('vip')" class="filter-btn" data-filter="vip">
+                    <i class="fa-solid fa-crown"></i> Panorâmicas VIP
+                </button>
+            </div>
+
+            <!-- Dynamic Court Grid -->
+            <div id="courts-grid" class="cards-grid">
+                <!-- Rendered dynamically by app.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTRUTURA E COMODIDADES -->
+    <section id="estrutura" class="section section-alt">
+        <div class="container">
+            <div class="structure-grid">
+                <div class="structure-info">
+                    <span class="section-subtitle">Estrutura Completa</span>
+                    <h2 class="section-title">Muito Mais do que Apenas um Jogo</h2>
+                    <p class="section-description">
+                        O PadelPro Arena oferece um ecossistema completo planejado para proporcionar máximo conforto para atletas, familiares e amigos antes e depois das partidas.
+                    </p>
+                    <a href="#contato" class="link-arrow">
+                        <span>Ver localização no mapa e horários</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="amenities-grid">
+                    <div class="amenity-card glass-card">
+                        <div class="amenity-icon"><i class="fa-solid fa-shower"></i></div>
+                        <div>
+                            <h3>Vestiários VIP</h3>
+                            <p>Chuveiros a gás de alta pressão, armários digitais e secadores em ambiente climatizado.</p>
+                        </div>
+                    </div>
+
+                    <div class="amenity-card glass-card">
+                        <div class="amenity-icon"><i class="fa-solid fa-store"></i></div>
+                        <div>
+                            <h3>Pro Shop de Raquetes</h3>
+                            <p>Loja especializada com equipamentos Babolat, Bullpadel, Nox, Wilson e teste grátis de raquetes.</p>
+                        </div>
+                    </div>
+
+                    <div class="amenity-card glass-card">
+                        <div class="amenity-icon"><i class="fa-solid fa-utensils"></i></div>
+                        <div>
+                            <h3>RestoBar & Lounge</h3>
+                            <p>Gastrobar com churrasco estilo parrilla, chopps artesanais e transmissão ao vivo de torneios.</p>
+                        </div>
+                    </div>
+
+                    <div class="amenity-card glass-card">
+                        <div class="amenity-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div>
+                            <h3>Treinadores Credenciados</h3>
+                            <p>Aulas individuais e em grupo para todos os níveis (iniciantes ao profissional).</p>
+                        </div>
+                    </div>
+
+                    <div class="amenity-card glass-card">
+                        <div class="amenity-icon"><i class="fa-solid fa-square-parking"></i></div>
+                        <div>
+                            <h3>Estacionamento Gratuito</h3>
+                            <p>Amplo estacionamento interno com segurança monitorada 24 horas e estações de recarga elétrica.</p>
+                        </div>
+                    </div>
+
+                    <div class="amenity-card glass-card">
+                        <div class="amenity-icon"><i class="fa-solid fa-display"></i></div>
+                        <div>
+                            <h3>Placar Eletrônico Digital</h3>
+                            <p>Painéis LED integrados para contagem pontual e gravação automatizada dos melhores momentos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANOS DE ASSINATURA -->
+    <section id="planos" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Planos & Vantagens</span>
+                <h2 class="section-title">Seja um Mensalista VIP</h2>
+                <p class="section-description">Garanta horários fixos em suas quadras favoritas, descontos exclusivos e vantagens na Pro Shop.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Casual -->
+                <div class="price-card glass-card">
+                    <div>
+                        <span class="plan-tag">Casual</span>
+                        <h3 class="plan-title">Jogo Avulso</h3>
+                        <div class="plan-price">
+                            <span class="amount">R$ 120</span>
+                            <span class="period">/ hora</span>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fa-solid fa-check"></i> Reserva online rápida</li>
+                            <li><i class="fa-solid fa-check"></i> Acesso aos vestiários</li>
+                            <li><i class="fa-solid fa-check"></i> Aluguel de raquetes no local</li>
+                            <li class="disabled"><i class="fa-solid fa-xmark"></i> Horário fixo semanal</li>
+                            <li class="disabled"><i class="fa-solid fa-xmark"></i> Desconto na Pro Shop</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal()" class="btn btn-outline btn-full">Reservar Avulso</button>
+                </div>
+
+                <!-- Pro (Popular) -->
+                <div class="price-card glass-card featured">
+                    <span class="popular-badge">Mais Recomendado</span>
+                    <div>
+                        <span class="plan-tag accent">Regular</span>
+                        <h3 class="plan-title">Mensalista Pro</h3>
+                        <div class="plan-price">
+                            <span class="amount">R$ 290</span>
+                            <span class="period">/ mês</span>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fa-solid fa-check"></i> 4 Horas fixas garantidas por mês</li>
+                            <li><i class="fa-solid fa-check"></i> 10% OFF em horas extras de quadra</li>
+                            <li><i class="fa-solid fa-check"></i> Antecedência de 14 dias para agendamentos</li>
+                            <li><i class="fa-solid fa-check"></i> 10% OFF em consumação no RestoBar</li>
+                            <li><i class="fa-solid fa-check"></i> 1 Tubo de bolas grátis por mês</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectSubscription('Mensalista Pro')" class="btn btn-neon btn-full">Assinar Plano Pro</button>
+                </div>
+
+                <!-- VIP Club -->
+                <div class="price-card glass-card">
+                    <div>
+                        <span class="plan-tag gold"><i class="fa-solid fa-crown"></i> VIP Club</span>
+                        <h3 class="plan-title">VIP Club</h3>
+                        <div class="plan-price">
+                            <span class="amount">R$ 490</span>
+                            <span class="period">/ mês</span>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fa-solid fa-check"></i> 8 Horas fixas (Quadras Panorâmicas VIP)</li>
+                            <li><i class="fa-solid fa-check"></i> 20% OFF em horas extras</li>
+                            <li><i class="fa-solid fa-check"></i> Agendamento prioritário com 30 dias</li>
+                            <li><i class="fa-solid fa-check"></i> 15% OFF na Pro Shop e RestoBar</li>
+                            <li><i class="fa-solid fa-check"></i> Empréstimo grátis de Raquetes Pro</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectSubscription('VIP Club')" class="btn btn-outline btn-full">Assinar VIP Club</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AVALIAÇÕES DOS ATLETAS -->
+    <section id="avaliacoes" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Comentários</span>
+                <h2 class="section-title">O que Dizem Nossos Atletas</h2>
+                <p class="section-description">A satisfação dos nossos jogadores é o nosso melhor troféu.</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card glass-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Estrutura impecável! O piso panorâmico azul é idêntico ao dos grandes campeonatos. A iluminação de noite é perfeita e não atrapalha o saque."</p>
+                    <div class="author-info">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop" alt="Mariana S." class="avatar">
+                        <div>
+                            <h4 class="author-name">Mariana Silva</h4>
+                            <span class="author-role">Jogadora Categoria 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card glass-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"O sistema de reserva no site é prático demais. Escolho a quadra, coloco o horário e os adicionais sem enrolação. O chopp do RestoBar pós-jogo é obrigatório!"</p>
+                    <div class="author-info">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Lucas R." class="avatar">
+                        <div>
+                            <h4 class="author-name">Lucas Rocha</h4>
+                            <span class="author-role">Mensalista Pro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card glass-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Excelente equipe de professores. Fiz aulas de aprimoramento de voleio e bandeja com o treinador da arena e meu jogo mudou de nível."</p>
+                    <div class="author-info">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop" alt="Rodrigo M." class="avatar">
+                        <div>
+                            <h4 class="author-name">Rodrigo Mendes</h4>
+                            <span class="author-role">Atleta Categoria 2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & CONTACT -->
+    <footer id="contato" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1 -->
+                <div class="footer-col">
+                    <a href="#" class="brand-logo">
+                        <div class="logo-icon"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div>
+                        <span class="logo-title">PADEL<span class="accent-text">PRO</span></span>
+                    </a>
+                    <p class="footer-desc">Seu complexo esportivo definitivo para a prática e evolução no Padel. Estrutura profissional, ensino de qualidade e convívio social.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Localização & Contato</h3>
+                    <ul class="footer-list">
+                        <li><i class="fa-solid fa-location-dot accent-icon"></i> Av. das Arenas, 1500 - Bairro Esportivo</li>
+                        <li><i class="fa-solid fa-phone accent-icon"></i> (11) 98888-7777</li>
+                        <li><i class="fa-solid fa-envelope accent-icon"></i> reservas@padelproarena.com.br</li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Horário de Funcionamento</h3>
+                    <ul class="footer-list text-sm">
+                        <li class="flex-between"><span>Seg - Sex:</span> <strong>06:00 - 23:30</strong></li>
+                        <li class="flex-between"><span>Sábados:</span> <strong>07:00 - 23:00</strong></li>
+                        <li class="flex-between"><span>Dom e Feriados:</span> <strong>07:00 - 21:00</strong></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 -->
+                <div class="footer-col">
+                    <h3 class="footer-heading">Newsletter</h3>
+                    <p class="footer-desc">Receba notificações de torneios internos e promoções exclusivas.</p>
+                    <form onsubmit="handleNewsletter(event)" class="newsletter-form">
+                        <input type="email" placeholder="Seu e-mail" required class="form-control">
+                        <button type="submit" class="btn btn-neon">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 PadelPro Arena Club. Todos os direitos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Privacidade</a>
+                    <a href="#">Regulamento Interno</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE BOOKING MODAL -->
+    <div id="booking-modal" class="modal-backdrop hidden">
+        <div class="modal-card glass-panel">
+            <button onclick="closeBookingModal()" class="modal-close" aria-label="Fechar Modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal-header">
+                <span class="section-subtitle">Agendamento Online</span>
+                <h2 id="modal-court-title" class="modal-title">Reservar Quadra</h2>
+            </div>
+
+            <!-- Steps Progress Bar -->
+            <div class="wizard-steps">
+                <div id="step-btn-1" class="step-item active">
+                    <span class="step-num">1</span>
+                    <span class="step-text">Quadra & Data</span>
+                </div>
+                <div class="step-line"></div>
+                <div id="step-btn-2" class="step-item">
+                    <span class="step-num">2</span>
+                    <span class="step-text">Horário & Extras</span>
+                </div>
+                <div class="step-line"></div>
+                <div id="step-btn-3" class="step-item">
+                    <span class="step-num">3</span>
+                    <span class="step-text">Confirmação</span>
+                </div>
+            </div>
+
+            <form id="booking-form" onsubmit="handleBookingSubmit(event)">
+                <!-- STEP 1 -->
+                <div id="booking-step-1" class="wizard-content">
+                    <div class="form-group">
+                        <label>Quadra Selecionada</label>
+                        <select id="modal-court-select" onchange="updateCourtDetailsInModal()" class="form-control">
+                            <!-- Populated dynamically -->
+                        </select>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Data da Partida</label>
+                            <input type="date" id="modal-date-select" required onchange="generateTimeSlots()" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Duração</label>
+                            <select id="modal-duration" onchange="calculateTotal()" class="form-control">
+                                <option value="1">1 Hora</option>
+                                <option value="1.5">1 Hora e 30 Min</option>
+                                <option value="2" selected>2 Horas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions flex-end">
+                        <button type="button" onclick="goToStep(2)" class="btn btn-neon">
+                            Próximo: Escolher Horário &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 2 -->
+                <div id="booking-step-2" class="wizard-content hidden">
+                    <div class="form-group">
+                        <label>Horários Disponíveis</label>
+                        <div id="time-slots-container" class="time-slots-grid">
+                            <!-- Slots generated via app.js -->
+                        </div>
+                        <input type="hidden" id="selected-timeslot" required>
+                    </div>
+
+                    <div class="form-group border-top">
+                        <label>Serviços Adicionais (Opcional)</label>
+                        <div class="addons-list">
+                            <label class="addon-card glass-card">
+                                <div class="addon-info">
+                                    <input type="checkbox" id="addon-racket" onchange="calculateTotal()">
+                                    <span>Aluguel de Raquetes Pro (2x)</span>
+                                </div>
+                                <span class="addon-price">+ R$ 30,00</span>
+                            </label>
+
+                            <label class="addon-card glass-card">
+                                <div class="addon-info">
+                                    <input type="checkbox" id="addon-balls" onchange="calculateTotal()">
+                                    <span>Tubo de Bolas Novas Babolat/Head</span>
+                                </div>
+                                <span class="addon-price">+ R$ 25,00</span>
+                            </label>
+
+                            <label class="addon-card glass-card">
+                                <div class="addon-info">
+                                    <input type="checkbox" id="addon-teacher" onchange="calculateTotal()">
+                                    <span>Acompanhamento de Treinador Particular</span>
+                                </div>
+                                <span class="addon-price">+ R$ 90,00</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions flex-between">
+                        <button type="button" onclick="goToStep(1)" class="btn btn-outline">&larr; Voltar</button>
+                        <button type="button" onclick="goToStep(3)" class="btn btn-neon">Avançar &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- STEP 3 -->
+                <div id="booking-step-3" class="wizard-content hidden">
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Nome Completo</label>
+                            <input type="text" id="cust-name" required placeholder="Seu nome" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone / WhatsApp</label>
+                            <input type="tel" id="cust-phone" required placeholder="(11) 99999-9999" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>E-mail para Confirmação</label>
+                        <input type="email" id="cust-email" required placeholder="seu@email.com" class="form-control">
+                    </div>
+
+                    <!-- Summary Box -->
+                    <div class="summary-box glass-card">
+                        <div class="summary-row">
+                            <span>Quadra:</span>
+                            <strong id="summary-court-name">-</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>Data e Horário:</span>
+                            <strong id="summary-datetime">-</strong>
+                        </div>
+                        <div class="summary-row summary-total">
+                            <span>Valor Total Previsto:</span>
+                            <strong id="summary-total-price" class="accent-text">R$ 0,00</strong>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions flex-between">
+                        <button type="button" onclick="goToStep(2)" class="btn btn-outline">&larr; Voltar</button>
+                        <button type="submit" class="btn btn-neon">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Finalizar Reserva</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast-container hidden">
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <div>
+            <h4 id="toast-title" class="toast-title">Sucesso!</h4>
+            <p id="toast-message" class="toast-message">Reserva confirmada.</p>
+        </div>
+    </div>
+
+    <!-- External JavaScript Application Logic -->
+    <script src="script.js"></script>
+</body>
+</html>
